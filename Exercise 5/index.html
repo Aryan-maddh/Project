@@ -1,0 +1,16 @@
+<!-- templates/submissions.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stored Submissions</title>
+</head>
+<body>
+    <h1>Stored Submissions</h1>
+    <ul>
+        {% for submission in submissions %}
+        <li>Name: {{ submission[0] }}, Email: {{ submission[1] }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
