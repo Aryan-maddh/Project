@@ -1,6 +1,6 @@
 class Atm:
     def __init__(self):
-        self.pin=''
+        self.pin=0
         self.balance=0
         self.menu()
     def menu(self):
@@ -21,33 +21,42 @@ class Atm:
         elif user_input==5:
             return 0
         else:
+
             print("Invalied choice")
     def new_pin(self):
-        self.pin=(input("Put Your Pin"))
-        print("Pin Set Successfully") 
+        self.pin=int(input("Put Your Pin"))
+        print("Pin Set Successfully")
+        self.menu() 
     def check_balance(self):
+        
         temp=int(input("Enter Pin"))
         if temp==self.pin:
             print(f"Balance is {self.balance}")   
         else:
             print("Wrong Pin")
+        self.menu()
     def withdraw(self):
         temp=int(input("Enter Your pin"))
         if temp==self.pin:
             amount=int(input("Enter Amount"))
-            if self.balance>amount:
+            if self.balance>=amount:
                 print("Sucess")
+                self.balance-=amount
+                print(f"Account Balance is {self.balance}")
             else:
                 print("influcient balance")
         else:
             print("Wrong pin")
+        self.menu()
     def deposit(self):
         temp=int(input("Enter Your pin"))
         if temp==self.pin:
             amo=int(input("Enter The Value"))
             self.balance+=amo
+            print('deposit successfull')
+            print(f"Account Balance is {self.balance}")
         else:
             print("Wrong Pin")
-        
+        self.menu()
             
-sbi=Atm()
+sbi=Atm()     #Calling
